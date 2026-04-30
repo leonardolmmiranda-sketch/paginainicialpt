@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTM — Ferramentas Operacionais | Mercado Libre</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --yellow: #FFE600; --yellow-dark: #E6CF00; --yellow-light: #FFFBE6;
+  --blue: #3483FA; --blue-dark: #2968C8; --blue-deeper: #1A4F9E;
+  --blue-light: #EBF3FF; --dark: #1A1A2E; --text: #333333;
+  --gray: #717171; --gray-light: #F5F5F5; --border: #EBEBEB; --white: #FFFFFF;
+}
+body { font-family: 'Inter', sans-serif; background: #F0F0F0; color: var(--text); min-height: 100vh; }
+
+header { background: var(--yellow); height: 60px; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--yellow-dark); }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-mark { width: 36px; height: 36px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-name { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 17px; color: var(--blue-deeper); }
+.logo-sub { font-size: 10px; font-weight: 600; color: var(--blue-dark); letter-spacing: 1px; text-transform: uppercase; margin-top: 1px; }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.lang-link { font-size: 12px; font-weight: 600; color: var(--blue-deeper); text-decoration: none; background: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; border: 1px solid var(--yellow-dark); transition: background .15s; }
+.lang-link:hover { background: white; }
+.badge-header { background: var(--blue); color: var(--yellow); font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+
+.hero { background: var(--yellow); padding: 4rem 2rem 3.5rem; text-align: center; border-bottom: 3px solid var(--yellow-dark); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.08) 40px, rgba(255,255,255,0.08) 80px); pointer-events: none; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; background: rgba(52,131,250,0.1); padding: 5px 16px; border-radius: 20px; }
+.hero-title-wrap { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.hero-ml-icon { width: 52px; height: 52px; background: var(--blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.hero-ml-icon svg { width: 30px; height: 30px; }
+.hero h1 { font-family: 'Raleway', sans-serif; font-size: clamp(32px, 6vw, 56px); font-weight: 900; color: var(--blue-deeper); letter-spacing: -1.5px; line-height: 1.1; }
+.hero h1 span { background: var(--blue); color: var(--yellow); padding: 2px 10px; border-radius: 6px; display: inline-block; }
+.hero-sub { font-size: 16px; color: var(--blue-dark); opacity: 0.8; max-width: 500px; margin: 0 auto 24px; line-height: 1.6; }
+.hero-pills { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.pill { background: white; border: 1px solid rgba(41,104,200,0.2); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 500; color: var(--blue-dark); display: flex; align-items: center; gap: 5px; }
+
+.container { max-width: 1040px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+.section-title { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── GRUPO (SVC / XD) ── */
+.group-block { margin-bottom: 2.5rem; }
+.group-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--blue-deeper); margin-bottom: 1rem;
+  background: var(--blue-light); padding: 5px 14px; border-radius: 20px;
+  border: 1px solid rgba(52,131,250,0.2);
+}
+
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+.tool-card { background: var(--white); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s; cursor: pointer; }
+.tool-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(52,131,250,0.12); border-color: var(--blue); }
+.tool-card:active { transform: translateY(-2px); }
+
+.card-top { background: var(--blue); padding: 1.75rem 1.5rem 1.5rem; position: relative; overflow: hidden; }
+.card-top::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.07); }
+.card-top::before { content: ''; position: absolute; top: -30px; left: 60%; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+.card-number { font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,230,0,0.6); margin-bottom: 10px; }
+.card-emoji { font-size: 36px; display: block; margin-bottom: 12px; line-height: 1; }
+.card-title { font-family: 'Raleway', sans-serif; font-size: 20px; font-weight: 800; color: var(--yellow); letter-spacing: -0.3px; line-height: 1.2; margin-bottom: 6px; }
+.card-subtitle { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.4; }
+.card-bottom { padding: 1.25rem 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.card-desc { font-size: 13px; color: var(--gray); line-height: 1.6; flex: 1; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; background: var(--blue-light); color: var(--blue-dark); }
+.card-cta { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
+.cta-text { font-size: 13px; font-weight: 600; color: var(--blue); }
+.cta-arrow { width: 28px; height: 28px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; transition: transform .15s; }
+.tool-card:hover .cta-arrow { transform: translateX(3px); }
+
+/* Pátio — em breve */
+.card-top.soon { background: #8A8A8A; }
+.tool-card.disabled { opacity: 0.55; pointer-events: none; }
+.soon-badge { display: inline-block; background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.8); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+
+.info-bar { background: var(--blue-light); border: 1px solid rgba(52,131,250,0.2); border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--blue-deeper); line-height: 1.5; margin-top: 2rem; }
+.info-icon { font-size: 20px; flex-shrink: 0; }
+
+footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-brand { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue-deeper); }
+.footer-note { font-size: 12px; color: var(--blue-dark); opacity: 0.7; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.tool-card { animation: fadeUp .4s ease both; }
+.group-block:nth-child(1) .tool-card:nth-child(1) { animation-delay: .05s; }
+.group-block:nth-child(1) .tool-card:nth-child(2) { animation-delay: .12s; }
+.group-block:nth-child(1) .tool-card:nth-child(3) { animation-delay: .19s; }
+.group-block:nth-child(2) .tool-card:nth-child(1) { animation-delay: .26s; }
+.group-block:nth-child(2) .tool-card:nth-child(2) { animation-delay: .33s; }
+.group-block:nth-child(2) .tool-card:nth-child(3) { animation-delay: .40s; }
+
+@media (max-width: 600px) { .hero h1 { font-size: 28px; } .cards-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="6.5" r="3.5" fill="#FFE600"/>
+        <path d="M2.5 17.5c0-4.142 3.358-7.5 7.5-7.5s7.5 3.358 7.5 7.5" stroke="#FFE600" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">Mercado Libre</div>
+      <div class="logo-sub">Ferramentas Internas</div>
+    </div>
+  </a>
+  <div class="header-right">
+    <a class="lang-link" href="MTM_Hub_ES.html">🇪🇸 Español</a>
+    <span class="badge-header">MTM</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">⚙️ Planejamento Operacional</div>
+  <div class="hero-title-wrap">
+    <div class="hero-ml-icon">
+      <svg viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="9.5" r="5.5" fill="#FFE600"/>
+        <path d="M3 27c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#FFE600" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>Ferramentas <span>MTM</span></h1>
+  </div>
+  <p class="hero-sub">Calculadoras operacionais para dimensionamento de Service Centers e Cross Dockings do Mercado Libre.</p>
+  <div class="hero-pills">
+    <div class="pill">📦 Equipamentos</div>
+    <div class="pill">📊 Produtividade</div>
+    <div class="pill">🚛 Pátio</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">Selecione uma ferramenta</div>
+
+  <!-- ═══ SVC ═══ -->
+  <div class="group-block">
+    <div class="group-label">🏭 SVC — Service Center</div>
+    <div class="cards-grid">
+
+      <a class="tool-card" href="LINK_EQUIPAMENTOS_SVC_PT">
+        <div class="card-top">
+          <div class="card-number">SVC · 01 — Equipamentos</div>
+          <span class="card-emoji">📦</span>
+          <div class="card-title">Calculadora de Equipamentos</div>
+          <div class="card-subtitle">SVC · Service Center</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Estime a quantidade de equipamentos necessários com base no volume e layout da sua operação.</p>
+          <div class="card-tags">
+            <span class="tag">Baker GM</span>
+            <span class="tag">Baker Volumoso</span>
+            <span class="tag">Baker Frágil</span>
+            <span class="tag">Carrinho de Supermercado</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="LINK_PRODUTIVIDADE_SVC_PT">
+        <div class="card-top">
+          <div class="card-number">SVC · 02 — Produtividade</div>
+          <span class="card-emoji">📊</span>
+          <div class="card-title">Calculadora de Produtividade</div>
+          <div class="card-subtitle">SVC · Produtividade MTM por subprocesso</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Calcule a produtividade de cada subprocesso com base nas capacidades MTM.</p>
+          <div class="card-tags">
+            <span class="tag">Inhub</span>
+            <span class="tag">Pesca</span>
+            <span class="tag">Sorting</span>
+            <span class="tag">Armado de HU</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="LINK_PATIO_SVC_PT">
+        <div class="card-top">
+          <div class="card-number">SVC · 03 — Pátio</div>
+          <span class="card-emoji">🚛</span>
+          <div class="card-title">Calculadora de Pátio</div>
+          <div class="card-subtitle">SVC · Docas · Vagas · YMS</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Dimensione o número de docas, vagas de espera e recursos de pátio para a operação de Line Haul e despacho.</p>
+          <div class="card-tags">
+            <span class="tag">Docas</span>
+            <span class="tag">Vagas LH</span>
+            <span class="tag">YMS</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ═══ XD ═══ -->
+  <div class="group-block">
+    <div class="group-label">🔀 XD — Cross Docking</div>
+    <div class="cards-grid">
+
+      <a class="tool-card" href="LINK_EQUIPAMENTOS_XD_PT">
+        <div class="card-top">
+          <div class="card-number">XD · 01 — Equipamentos</div>
+          <span class="card-emoji">📦</span>
+          <div class="card-title">Calculadora de Equipamentos</div>
+          <div class="card-subtitle">XD · Cross Docking</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Estime a quantidade de equipamentos necessários com base no volume e layout da sua operação.</p>
+          <div class="card-tags">
+            <span class="tag">Baker GM</span>
+            <span class="tag">Baker Volumoso</span>
+            <span class="tag">Baker Frágil</span>
+            <span class="tag">Carrinho de Supermercado</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="LINK_PRODUTIVIDADE_XD_PT">
+        <div class="card-top">
+          <div class="card-number">XD · 02 — Produtividade</div>
+          <span class="card-emoji">📊</span>
+          <div class="card-title">Calculadora de Produtividade</div>
+          <div class="card-subtitle">XD · Produtividade MTM por subprocesso</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Calcule a produtividade de cada subprocesso com base nas capacidades MTM.</p>
+          <div class="card-tags">
+            <span class="tag">Inhub</span>
+            <span class="tag">Pesca</span>
+            <span class="tag">Sorting</span>
+            <span class="tag">Armado de HU</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="LINK_PATIO_XD_PT">
+        <div class="card-top">
+          <div class="card-number">XD · 03 — Pátio</div>
+          <span class="card-emoji">🚛</span>
+          <div class="card-title">Calculadora de Pátio</div>
+          <div class="card-subtitle">XD · Docas · Vagas · YMS</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Dimensione o número de docas, vagas de espera e recursos de pátio para a operação de Line Haul e despacho.</p>
+          <div class="card-tags">
+            <span class="tag">Docas</span>
+            <span class="tag">Vagas LH</span>
+            <span class="tag">YMS</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="info-bar">
+    <span class="info-icon">💡</span>
+    <span>Os links de cada calculadora podem ser atualizados conforme as ferramentas forem publicadas. Dúvidas? Fale com o time de MTM.</span>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">Mercado Libre — MTM</div>
+  <div class="footer-note">Ferramentas de Planejamento Operacional · Service Center &amp; Cross Docking</div>
+</footer>
+
+</body>
+</html>

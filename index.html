@@ -15,6 +15,8 @@
   --green: #00A650; --green-dark: #007A3D; --green-light: #E8F8EF;
   --purple: #6C3FC5; --purple-light: #F0EAFB;
   --orange: #FF7733; --orange-light: #FFF0E8;
+  --teal: #0097A7; --teal-light: #E0F7FA;
+  --indigo: #3949AB; --indigo-light: #E8EAF6;
 }
 body { font-family: 'Inter', sans-serif; background: #F0F0F0; color: var(--text); min-height: 100vh; }
 
@@ -45,16 +47,16 @@ header { background: var(--yellow); height: 60px; padding: 0 2rem; display: flex
 .section-title { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
 .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-/* ── GRUPO ── */
 .group-block { margin-bottom: 2.5rem; }
 .group-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-deeper); margin-bottom: 1rem; background: var(--blue-light); padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(52,131,250,0.2); }
 .group-label.green { color: var(--green-dark); background: var(--green-light); border-color: rgba(0,166,80,0.2); }
 .group-label.purple { color: var(--purple); background: var(--purple-light); border-color: rgba(108,63,197,0.2); }
+.group-label.teal { color: #005F6B; background: var(--teal-light); border-color: rgba(0,151,167,0.25); }
+.group-label.indigo { color: #1a237e; background: var(--indigo-light); border-color: rgba(57,73,171,0.25); }
 
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .cards-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 
-/* ── TOOL CARD ── */
 .tool-card { background: var(--white); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s; cursor: pointer; }
 .tool-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(52,131,250,0.12); border-color: var(--blue); }
 .tool-card:active { transform: translateY(-2px); }
@@ -64,16 +66,16 @@ header { background: var(--yellow); height: 60px; padding: 0 2rem; display: flex
 .card-top.purple { background: var(--purple); }
 .card-top.orange { background: var(--orange); }
 .card-top.dark { background: var(--dark); }
+.card-top.teal { background: var(--teal); }
+.card-top.indigo { background: var(--indigo); }
 .card-top::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.07); }
 .card-top::before { content: ''; position: absolute; top: -30px; left: 60%; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.05); }
 .card-number { font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,230,0,0.6); margin-bottom: 10px; }
-.card-top.green .card-number { color: rgba(255,255,255,0.5); }
-.card-top.purple .card-number { color: rgba(255,255,255,0.5); }
-.card-top.orange .card-number { color: rgba(255,255,255,0.5); }
+.card-top.green .card-number,.card-top.purple .card-number,.card-top.orange .card-number,.card-top.teal .card-number,.card-top.indigo .card-number { color: rgba(255,255,255,0.5); }
 .card-top.dark .card-number { color: rgba(255,230,0,0.5); }
 .card-emoji { font-size: 36px; display: block; margin-bottom: 12px; line-height: 1; }
 .card-title { font-family: 'Raleway', sans-serif; font-size: 20px; font-weight: 800; color: var(--yellow); letter-spacing: -0.3px; line-height: 1.2; margin-bottom: 6px; }
-.card-top.green .card-title,.card-top.purple .card-title,.card-top.orange .card-title { color: white; }
+.card-top.green .card-title,.card-top.purple .card-title,.card-top.orange .card-title,.card-top.teal .card-title,.card-top.indigo .card-title { color: white; }
 .card-subtitle { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.4; }
 .card-bottom { padding: 1.25rem 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 12px; }
 .card-desc { font-size: 13px; color: var(--gray); line-height: 1.6; flex: 1; }
@@ -82,6 +84,8 @@ header { background: var(--yellow); height: 60px; padding: 0 2rem; display: flex
 .tag.green { background: var(--green-light); color: var(--green-dark); }
 .tag.purple { background: var(--purple-light); color: var(--purple); }
 .tag.orange { background: var(--orange-light); color: #8B3A00; }
+.tag.teal { background: var(--teal-light); color: #005F6B; }
+.tag.indigo { background: var(--indigo-light); color: #1a237e; }
 .card-cta { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
 .cta-text { font-size: 13px; font-weight: 600; color: var(--blue); }
 .cta-arrow { width: 28px; height: 28px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; transition: transform .15s; }
@@ -92,40 +96,32 @@ header { background: var(--yellow); height: 60px; padding: 0 2rem; display: flex
 .cta-arrow.purple { background: var(--purple); }
 .cta-text.orange { color: var(--orange); }
 .cta-arrow.orange { background: var(--orange); }
+.cta-text.teal { color: var(--teal); }
+.cta-arrow.teal { background: var(--teal); }
+.cta-text.indigo { color: var(--indigo); }
+.cta-arrow.indigo { background: var(--indigo); }
 
-/* badge IA */
 .ai-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 10px; font-size: 10px; font-weight: 700; color: white; letter-spacing: .5px; margin-bottom: 8px; }
 
 .card-top.soon { background: #8A8A8A; }
 .tool-card.disabled { opacity: 0.55; pointer-events: none; }
 
-/* ── SECTION PANELS SVC / XD ── */
-.section-panel {
-  border-radius: 16px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
-.section-panel.svc {
-  background: #EBF3FF;
-  border: 1.5px solid rgba(52,131,250,0.18);
-}
-.section-panel.xd {
-  background: #F0EAFB;
-  border: 1.5px solid rgba(108,63,197,0.15);
-}
-.section-panel .group-label {
-  margin-bottom: 1.25rem;
-}
-.section-panel.svc .group-label {
-  background: var(--blue);
-  color: var(--yellow);
-  border-color: var(--blue-dark);
-}
-.section-panel.xd .group-label {
-  background: var(--purple);
-  color: white;
-  border-color: rgba(108,63,197,0.4);
-}
+.section-panel { border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; }
+.section-panel.svc { background: #EBF3FF; border: 1.5px solid rgba(52,131,250,0.18); }
+.section-panel.xd { background: #F0EAFB; border: 1.5px solid rgba(108,63,197,0.15); }
+.section-panel.meliair { background: #E0F7FA; border: 1.5px solid rgba(0,151,167,0.2); }
+.section-panel.sorter { background: #E8EAF6; border: 1.5px solid rgba(57,73,171,0.18); }
+.section-panel .group-label { margin-bottom: 1.25rem; }
+.section-panel.svc .group-label { background: var(--blue); color: var(--yellow); border-color: var(--blue-dark); }
+.section-panel.xd .group-label { background: var(--purple); color: white; border-color: rgba(108,63,197,0.4); }
+.section-panel.meliair .group-label { background: var(--teal); color: white; border-color: rgba(0,151,167,0.4); }
+.section-panel.sorter .group-label { background: var(--indigo); color: white; border-color: rgba(57,73,171,0.4); }
+
+/* ── VIDEO SECTION ── */
+.video-section { background: var(--yellow); padding: 0 2rem 2.5rem; display: flex; justify-content: center; }
+.video-wrapper { width: 100%; max-width: 860px; background: var(--blue-deeper); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(26,79,158,0.25); border: 3px solid var(--blue-dark); }
+.video-label { background: var(--blue-deeper); color: var(--yellow); font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 18px; }
+.video-wrapper video { display: block; width: 100%; height: 480px; background: #000; border: none; }
 
 .info-bar { background: var(--blue-light); border: 1px solid rgba(52,131,250,0.2); border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--blue-deeper); line-height: 1.5; margin-top: 2rem; }
 .info-icon { font-size: 20px; flex-shrink: 0; }
@@ -192,16 +188,25 @@ footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); pa
   </div>
 </div>
 
+<div class="video-section">
+  <div class="video-wrapper">
+    <div class="video-label">▶ Conheça as Ferramentas MTM</div>
+    <video controls preload="metadata">
+      <source src="MTM_ES.mp4" type="video/mp4">
+      Seu navegador não suporta reprodução de vídeo.
+    </video>
+  </div>
+</div>
+
 <div class="container">
 
   <div class="section-title">Selecione uma ferramenta</div>
 
-  <!-- ═══ FERRAMENTAS MTM IA + RECURSOS ═══ -->
+  <!-- IA & Recursos -->
   <div class="group-block">
     <div class="group-label green">🤖 IA &amp; Recursos MTM</div>
     <div class="cards-grid-2">
 
-      <!-- ANÁLISE MTM POR VÍDEO -->
       <a class="tool-card" href="https://mtmtransportes-calculadoramtmpt.vercel.app/">
         <div class="card-top dark">
           <div class="ai-badge">✨ IA — Gemini</div>
@@ -223,7 +228,6 @@ footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); pa
         </div>
       </a>
 
-      <!-- CATALOGO DE FORNECEDORES -->
       <a class="tool-card" href="https://mtmtransportes-proveedores.vercel.app/">
         <div class="card-top purple">
           <div class="card-number">Catálogo</div>
@@ -245,7 +249,6 @@ footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); pa
         </div>
       </a>
 
-      <!-- CATÁLOGO DE EQUIPAMENTOS -->
       <a class="tool-card" href="https://docs.google.com/presentation/d/1aLgjXXAIyTFTFINOkTN_P4H6_MVNJQKjvVw4NGjr9Fs/edit">
         <div class="card-top purple">
           <div class="card-number">Catálogo</div>
@@ -267,7 +270,6 @@ footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); pa
         </div>
       </a>
 
-      <!-- PLAYBOOKS -->
       <a class="tool-card" href="LINK_PLAYBOOKS">
         <div class="card-top orange">
           <div class="card-number">Documentação</div>
@@ -293,7 +295,7 @@ footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); pa
     </div>
   </div>
 
-  <!-- ═══ SVC ═══ -->
+  <!-- SVC -->
   <div class="section-panel svc">
     <div class="group-label">🏭 SVC — Service Center</div>
     <div class="cards-grid">
@@ -363,10 +365,31 @@ footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); pa
         </div>
       </a>
 
-    </div><!-- end SVC cards-grid -->
-  </div><!-- end SVC section-panel -->
+      <a class="tool-card" href="LINK_PLAYBOOK_SVC_PT">
+        <div class="card-top">
+          <div class="card-number">SVC · 04 — Documentação</div>
+          <span class="card-emoji">📚</span>
+          <div class="card-title">Playbook SVC</div>
+          <div class="card-subtitle">SVC · Service Center</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Acesse o playbook operacional completo do Service Center com guias de processos, padrões e boas práticas MTM.</p>
+          <div class="card-tags">
+            <span class="tag">Processos</span>
+            <span class="tag">Padrões</span>
+            <span class="tag">Guias</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir playbook</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
 
-  <!-- ═══ XD ═══ -->
+    </div>
+  </div>
+
+  <!-- XD -->
   <div class="section-panel xd">
     <div class="group-label">🔀 XD — Cross Docking</div>
     <div class="cards-grid">
@@ -436,8 +459,87 @@ footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); pa
         </div>
       </a>
 
-    </div><!-- end XD cards-grid -->
-  </div><!-- end XD section-panel -->
+      <a class="tool-card" href="LINK_PLAYBOOK_XD_PT">
+        <div class="card-top purple">
+          <div class="card-number">XD · 04 — Documentação</div>
+          <span class="card-emoji">📚</span>
+          <div class="card-title">Playbook XD</div>
+          <div class="card-subtitle">XD · Cross Docking</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Acesse o playbook operacional completo do Cross Docking com guias de processos, padrões e boas práticas MTM.</p>
+          <div class="card-tags">
+            <span class="tag purple">Processos</span>
+            <span class="tag purple">Padrões</span>
+            <span class="tag purple">Guias</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text purple">Abrir playbook</span>
+            <div class="cta-arrow purple">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- MeliAir -->
+  <div class="section-panel meliair">
+    <div class="group-label">✈️ MeliAir — Operação Aérea</div>
+    <div class="cards-grid">
+
+      <a class="tool-card" href="LINK_CALCULADORA_MELIAIR_PT">
+        <div class="card-top teal">
+          <div class="card-number">MeliAir · 01 — Dimensionamento</div>
+          <span class="card-emoji">✈️</span>
+          <div class="card-title">Calculadora de MeliAir</div>
+          <div class="card-subtitle">MeliAir · Operação Aérea</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Dimensione recursos, equipamentos e capacidade operacional para a operação de carga aérea MeliAir.</p>
+          <div class="card-tags">
+            <span class="tag teal">Carga Aérea</span>
+            <span class="tag teal">Capacidade</span>
+            <span class="tag teal">Recursos</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text teal">Abrir calculadora</span>
+            <div class="cta-arrow teal">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Sorter -->
+  <div class="section-panel sorter">
+    <div class="group-label">⚙️ Sorter — Classificação Automática</div>
+    <div class="cards-grid">
+
+      <a class="tool-card" href="LINK_PLAYBOOK_SORTER_PT">
+        <div class="card-top indigo">
+          <div class="card-number">Sorter · 01 — Documentação</div>
+          <span class="card-emoji">📚</span>
+          <div class="card-title">Playbook de Sorter</div>
+          <div class="card-subtitle">Sorter · Classificação Automática</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Acesse o playbook completo do Sorter automático com especificações técnicas, padrões de operação e guias de implementação MTM.</p>
+          <div class="card-tags">
+            <span class="tag indigo">Automação</span>
+            <span class="tag indigo">Classificação</span>
+            <span class="tag indigo">Implementação</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text indigo">Abrir playbook</span>
+            <div class="cta-arrow indigo">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
 
   <div class="info-bar">
     <span class="info-icon">💡</span>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTM — Ferramentas Operacionais | Mercado Libre</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --yellow: #FFF8DC;
+  --yellow-mid: #F5E97A;
+  --yellow-dark: #E8D98A;
+  --yellow-light: #FFFDF0;
+  --blue: #2C3E6B;
+  --blue-dark: #1E2D52;
+  --blue-deeper: #15203D;
+  --blue-light: #EEF2FF;
+  --blue-mid: #3D5490;
+  --dark: #1A1A2E;
+  --text: #333333;
+  --gray: #717171;
+  --gray-light: #F5F5F5;
+  --border: #EBEBEB;
+  --white: #FFFFFF;
+  --green: #2E7D5E;
+  --green-dark: #1F5C44;
+  --green-light: #E8F5EE;
+  --purple: #5B3AA8;
+  --purple-light: #EEE8FA;
+  --orange: #C4631A;
+  --orange-light: #FDF0E6;
+  --teal: #0B7E8A;
+  --teal-light: #E0F5F7;
+  --indigo: #2E3F8F;
+  --indigo-light: #E8EAFA;
+}
+body { font-family: 'Inter', sans-serif; background: #EDEAE3; color: var(--text); min-height: 100vh; }
+
+/* ── HEADER ── */
+header {
+  background: var(--yellow);
+  height: 60px; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 2px solid var(--yellow-dark);
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-mark { width: 36px; height: 36px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-name { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 17px; color: var(--blue-deeper); }
+.logo-sub { font-size: 10px; font-weight: 600; color: var(--blue-dark); letter-spacing: 1px; text-transform: uppercase; margin-top: 1px; }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.lang-link {
+  font-size: 12px; font-weight: 600; color: var(--blue-deeper);
+  text-decoration: none; background: rgba(255,255,255,0.7);
+  padding: 5px 14px; border-radius: 20px; border: 1px solid var(--yellow-dark);
+  transition: background .15s;
+}
+.lang-link:hover { background: white; }
+.badge-header {
+  background: var(--blue); color: var(--yellow-mid);
+  font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700;
+  padding: 4px 12px; border-radius: 20px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--yellow); padding: 4rem 2rem 3.5rem;
+  text-align: center; border-bottom: 3px solid var(--yellow-dark);
+  position: relative; overflow: hidden;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 16px;
+  background: rgba(44,62,107,0.08); padding: 5px 16px; border-radius: 20px;
+}
+.hero-title-wrap { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.hero-ml-icon { width: 52px; height: 52px; background: var(--blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.hero-ml-icon svg { width: 30px; height: 30px; }
+.hero h1 { font-family: 'Raleway', sans-serif; font-size: clamp(32px, 6vw, 56px); font-weight: 900; color: var(--blue-deeper); letter-spacing: -1.5px; line-height: 1.1; }
+.hero h1 span { background: var(--blue); color: var(--yellow-mid); padding: 2px 10px; border-radius: 6px; display: inline-block; }
+.hero-sub { font-size: 16px; color: var(--blue-dark); opacity: 0.75; max-width: 500px; margin: 0 auto 24px; line-height: 1.6; }
+.hero-pills { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.pill { background: white; border: 1px solid rgba(44,62,107,0.15); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 500; color: var(--blue-dark); display: flex; align-items: center; gap: 5px; }
+
+/* ── VIDEO ── */
+.video-section { background: var(--yellow); padding: 0 2rem 2.5rem; display: flex; justify-content: center; }
+.video-wrapper { width: 100%; max-width: 860px; background: var(--blue-deeper); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(21,32,61,0.2); border: 3px solid var(--blue-dark); }
+.video-label { background: var(--blue-deeper); color: var(--yellow-mid); font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 18px; }
+.video-wrapper video { display: block; width: 100%; height: 480px; background: #000; border: none; }
+
+/* ── CONTAINER ── */
+.container { max-width: 1040px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+.section-title { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── TOP CARDS — 4 category groups ── */
+.top-groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 2.5rem; }
+
+/* Each group has a label + single card stacked */
+.top-group { display: flex; flex-direction: column; gap: 10px; }
+.group-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--blue-deeper); margin-bottom: 0;
+  background: var(--blue-light); padding: 5px 12px; border-radius: 20px;
+  border: 1px solid rgba(44,62,107,0.18); white-space: nowrap;
+}
+.group-label.green  { color: var(--green-dark); background: var(--green-light); border-color: rgba(46,125,94,0.2); }
+.group-label.purple { color: var(--purple); background: var(--purple-light); border-color: rgba(91,58,168,0.2); }
+.group-label.orange { color: var(--orange); background: var(--orange-light); border-color: rgba(196,99,26,0.2); }
+.group-label.dark   { color: var(--blue-deeper); background: #e8e8f0; border-color: rgba(26,26,46,0.18); }
+
+/* ── TOOL CARD (shared) ── */
+.tool-card {
+  background: var(--white); border-radius: 16px; border: 1px solid var(--border);
+  overflow: hidden; text-decoration: none; display: flex; flex-direction: column;
+  transition: transform .2s, box-shadow .2s; cursor: pointer;
+}
+.tool-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(44,62,107,0.12); border-color: var(--blue-mid); }
+.tool-card:active { transform: translateY(-2px); }
+
+.card-top { background: var(--blue); padding: 1.5rem 1.25rem 1.25rem; position: relative; overflow: hidden; }
+.card-top.green  { background: var(--green); }
+.card-top.purple { background: var(--purple); }
+.card-top.orange { background: var(--orange); }
+.card-top.dark   { background: var(--dark); }
+.card-top.teal   { background: var(--teal); }
+.card-top.indigo { background: var(--indigo); }
+.card-top::after  { content: ''; position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+.card-top::before { content: ''; position: absolute; top: -30px; left: 60%; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+
+.card-number { font-family: 'Raleway', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,233,122,0.55); margin-bottom: 8px; }
+.card-top.green .card-number,
+.card-top.purple .card-number,
+.card-top.orange .card-number,
+.card-top.teal .card-number,
+.card-top.indigo .card-number { color: rgba(255,255,255,0.45); }
+.card-top.dark .card-number { color: rgba(245,233,122,0.5); }
+
+.card-emoji { font-size: 30px; display: block; margin-bottom: 10px; line-height: 1; }
+.card-title { font-family: 'Raleway', sans-serif; font-size: 17px; font-weight: 800; color: var(--yellow-mid); letter-spacing: -0.3px; line-height: 1.2; margin-bottom: 5px; }
+.card-top.green .card-title,
+.card-top.purple .card-title,
+.card-top.orange .card-title,
+.card-top.teal .card-title,
+.card-top.indigo .card-title { color: white; }
+.card-subtitle { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+
+.card-bottom { padding: 1rem 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.card-desc { font-size: 12px; color: var(--gray); line-height: 1.6; flex: 1; }
+.card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.tag { font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 20px; background: var(--blue-light); color: var(--blue-dark); }
+.tag.green  { background: var(--green-light); color: var(--green-dark); }
+.tag.purple { background: var(--purple-light); color: var(--purple); }
+.tag.orange { background: var(--orange-light); color: #7A3C0A; }
+.tag.teal   { background: var(--teal-light); color: #065863; }
+.tag.indigo { background: var(--indigo-light); color: #1a237e; }
+
+.card-cta { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border); }
+.cta-text { font-size: 12px; font-weight: 600; color: var(--blue); }
+.cta-text.green  { color: var(--green-dark); }
+.cta-text.purple { color: var(--purple); }
+.cta-text.orange { color: var(--orange); }
+.cta-text.teal   { color: var(--teal); }
+.cta-text.indigo { color: var(--indigo); }
+.cta-arrow { width: 26px; height: 26px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 13px; transition: transform .15s; }
+.cta-arrow.green  { background: var(--green); }
+.cta-arrow.purple { background: var(--purple); }
+.cta-arrow.orange { background: var(--orange); }
+.cta-arrow.teal   { background: var(--teal); }
+.cta-arrow.indigo { background: var(--indigo); }
+.tool-card:hover .cta-arrow { transform: translateX(3px); }
+
+.ai-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.15); border-radius: 20px; padding: 3px 10px; font-size: 10px; font-weight: 700; color: white; letter-spacing: .5px; margin-bottom: 8px; }
+
+/* ── SECTION PANELS (SVC / XD / MeliAir / Sorter) ── */
+.section-panel { border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; }
+.section-panel.svc    { background: #EEF2FF; border: 1.5px solid rgba(44,62,107,0.15); }
+.section-panel.xd     { background: var(--purple-light); border: 1.5px solid rgba(91,58,168,0.13); }
+.section-panel.meliair { background: var(--teal-light); border: 1.5px solid rgba(11,126,138,0.18); }
+.section-panel.sorter  { background: var(--indigo-light); border: 1.5px solid rgba(46,63,143,0.16); }
+
+.panel-group-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 1.25rem; padding: 5px 14px; border-radius: 20px;
+}
+.section-panel.svc    .panel-group-label { background: var(--blue); color: var(--yellow-mid); border: 1px solid var(--blue-dark); }
+.section-panel.xd     .panel-group-label { background: var(--purple); color: white; border: 1px solid rgba(91,58,168,0.4); }
+.section-panel.meliair .panel-group-label { background: var(--teal); color: white; border: 1px solid rgba(11,126,138,0.4); }
+.section-panel.sorter  .panel-group-label { background: var(--indigo); color: white; border: 1px solid rgba(46,63,143,0.4); }
+
+/* Horizontal 4-card grid for SVC/XD */
+.cards-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+/* Smaller card-top for horizontal layout */
+.cards-grid-4 .card-top { padding: 1.25rem 1rem 1rem; min-height: 160px; }
+.cards-grid-4 .card-emoji { font-size: 26px; margin-bottom: 8px; }
+.cards-grid-4 .card-title { font-size: 15px; }
+.cards-grid-4 .card-number { font-size: 9px; }
+.cards-grid-4 .card-bottom { padding: 0.875rem 1rem; gap: 8px; }
+.cards-grid-4 .card-desc { font-size: 11.5px; }
+
+/* Equal card-top height for top-groups row */
+.top-groups .card-top { min-height: 190px; }
+
+/* Single card row (MeliAir / Sorter) — full width like original */
+.cards-grid-single { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+/* ── INFO BAR ── */
+.info-bar { background: var(--blue-light); border: 1px solid rgba(44,62,107,0.18); border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--blue-deeper); line-height: 1.5; margin-top: 2rem; }
+.info-icon { font-size: 20px; flex-shrink: 0; }
+
+/* ── FOOTER ── */
+footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-brand { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue-deeper); }
+.footer-note { font-size: 12px; color: var(--blue-dark); opacity: 0.7; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.tool-card { animation: fadeUp .4s ease both; }
+.top-group:nth-child(1) .tool-card { animation-delay: .05s; }
+.top-group:nth-child(2) .tool-card { animation-delay: .12s; }
+.top-group:nth-child(3) .tool-card { animation-delay: .18s; }
+.top-group:nth-child(4) .tool-card { animation-delay: .24s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .top-groups { grid-template-columns: repeat(2, 1fr); }
+  .cards-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 28px; }
+  .top-groups { grid-template-columns: 1fr; }
+  .cards-grid-4 { grid-template-columns: 1fr; }
+  .cards-grid-1 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="6.5" r="3.5" fill="#F5E97A"/>
+        <path d="M2.5 17.5c0-4.142 3.358-7.5 7.5-7.5s7.5 3.358 7.5 7.5" stroke="#F5E97A" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">Mercado Libre</div>
+      <div class="logo-sub">Ferramentas Internas</div>
+    </div>
+  </a>
+  <div class="header-right">
+    <a class="lang-link" href="https://mtmtransportes-paginainiciales.vercel.app/">🇪🇸 Español</a>
+    <span class="badge-header">MTM</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">⚙️ Planejamento Operacional</div>
+  <div class="hero-title-wrap">
+    <div class="hero-ml-icon">
+      <svg viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="9.5" r="5.5" fill="#F5E97A"/>
+        <path d="M3 27c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#F5E97A" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>Ferramentas <span>MTM</span></h1>
+  </div>
+  <p class="hero-sub">Calculadoras operacionais para dimensionamento de Service Centers e Cross Dockings do Mercado Libre.</p>
+  <div class="hero-pills">
+    <div class="pill">📦 Equipamentos</div>
+    <div class="pill">📊 Produtividade</div>
+    <div class="pill">🚛 Pátio</div>
+    <div class="pill">🎬 Análise MTM</div>
+    <div class="pill">📚 Recursos</div>
+  </div>
+</div>
+
+<div class="video-section">
+  <div class="video-wrapper">
+    <div class="video-label">▶ Conheça a área de MTM</div>
+    <video controls preload="metadata">
+      <source src="MTM ES.mp4" type="video/mp4">
+      Seu navegador não suporta reprodução de vídeo.
+    </video>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">Selecione uma ferramenta</div>
+
+  <!-- ═══════════════════════════════════════════════
+       TOP GROUPS — 4 colunas
+       1. Playbooks  2. Produtividade  3. Equipamentos  4. Análise & Recursos
+  ══════════════════════════════════════════════════ -->
+  <div class="top-groups">
+
+    <!-- 1. Playbooks -->
+    <div class="top-group">
+      <span class="group-label orange">📚 Playbooks</span>
+      <a class="tool-card" href="#">
+        <div class="card-top orange">
+          <div class="card-number">Documentação</div>
+          <span class="card-emoji">📚</span>
+          <div class="card-title">Playbooks MTM</div>
+          <div class="card-subtitle">Guias · Processos · Padrões</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Acesse os playbooks operacionais e guias de referência para implementação de processos MTM nos CDs.</p>
+          <div class="card-tags">
+            <span class="tag orange">GM</span>
+            <span class="tag orange">Volumoso</span>
+            <span class="tag orange">Frágeis</span>
+            <span class="tag orange">Oversize</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text orange">Abrir playbooks</span>
+            <div class="cta-arrow orange">→</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 2. Produtividade -->
+    <div class="top-group">
+      <span class="group-label">📊 Produtividade</span>
+      <a class="tool-card" href="#">
+        <div class="card-top">
+          <div class="card-number">Calculadora</div>
+          <span class="card-emoji">📊</span>
+          <div class="card-title">Calculadora de Produtividade</div>
+          <div class="card-subtitle">SVC &amp; XD · Subprocessos</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Calcule a produtividade de cada subprocesso operacional com base nas capacidades MTM.</p>
+          <div class="card-tags">
+            <span class="tag">Inhub</span>
+            <span class="tag">Pesca</span>
+            <span class="tag">Sorting</span>
+            <span class="tag">Dispach</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 3. Equipamentos -->
+    <div class="top-group">
+      <span class="group-label green">📦 Equipamentos</span>
+      <a class="tool-card" href="#">
+        <div class="card-top green">
+          <div class="card-number">Calculadora</div>
+          <span class="card-emoji">📦</span>
+          <div class="card-title">Calculadora de Equipamentos</div>
+          <div class="card-subtitle">SVC &amp; XD · Layout</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Estime a quantidade de equipamentos necessários com base no volume e layout da operação.</p>
+          <div class="card-tags">
+            <span class="tag green">Baker GM</span>
+            <span class="tag green">Flowrack</span>
+            <span class="tag green">Pallet High</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text green">Abrir calculadora</span>
+            <div class="cta-arrow green">→</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 4. Análise & Recursos -->
+    <div class="top-group">
+      <span class="group-label dark">🎬 Análise &amp; Recursos</span>
+      <a class="tool-card" href="https://mtmtransportes-calculadoramtmpt.vercel.app/">
+        <div class="card-top dark">
+          <div class="ai-badge">✨ IA — Gemini</div>
+          <span class="card-emoji">🎬</span>
+          <div class="card-title">Análise MTM</div>
+          <div class="card-subtitle">Análise automática por vídeo · MTM-UAS / MTM-LOG</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Envie um vídeo de um processo e receba a tabela MTM completa com código, TMU e tempo de ciclo gerados por IA.</p>
+          <div class="card-tags">
+            <span class="tag">Código MTM</span>
+            <span class="tag">TMU</span>
+            <span class="tag">Tempo ciclo</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir analisador</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+  <!-- /top-groups -->
+
+
+  <!-- ═══════════════════════════════════════════════
+       SVC — Service Center (4 cards horizontais)
+  ══════════════════════════════════════════════════ -->
+  <div class="section-panel svc">
+    <div class="panel-group-label">🏭 SVC — Service Center</div>
+    <div class="cards-grid-4">
+
+      <a class="tool-card" href="https://mtmtransportes-calculadoraequipamentosvcpt.vercel.app/">
+        <div class="card-top">
+          <div class="card-number">SVC · 01 — Equipamentos</div>
+          <span class="card-emoji">📦</span>
+          <div class="card-title">Calculadora de Equipamentos</div>
+          <div class="card-subtitle">SVC · Service Center</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Estime a quantidade de equipamentos com base no volume e layout da operação.</p>
+          <div class="card-tags">
+            <span class="tag">Baker GM</span>
+            <span class="tag">Baker Volumoso</span>
+            <span class="tag">Baker Frágil</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="https://mtmtransportes-calculadoraprodsvcpt.vercel.app/">
+        <div class="card-top">
+          <div class="card-number">SVC · 02 — Produtividade</div>
+          <span class="card-emoji">📊</span>
+          <div class="card-title">Calculadora de Produtividade</div>
+          <div class="card-subtitle">SVC · Service Center</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Calcule a produtividade de cada subprocesso com base nas capacidades MTM.</p>
+          <div class="card-tags">
+            <span class="tag">Inhub</span>
+            <span class="tag">Pesca</span>
+            <span class="tag">Sorting</span>
+            <span class="tag">Dispach</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="LINK_PATIO_SVC_PT">
+        <div class="card-top">
+          <div class="card-number">SVC · 03 — Pátio</div>
+          <span class="card-emoji">🚛</span>
+          <div class="card-title">Calculadora de Pátio</div>
+          <div class="card-subtitle">SVC · Service Center</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Dimensione docas, vagas de espera e recursos de pátio para Line Haul e despacho.</p>
+          <div class="card-tags">
+            <span class="tag">Docas</span>
+            <span class="tag">Vagas LH</span>
+            <span class="tag">YMS</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="LINK_PLAYBOOK_SVC_PT">
+        <div class="card-top">
+          <div class="card-number">SVC · 04 — Documentação</div>
+          <span class="card-emoji">📚</span>
+          <div class="card-title">Playbook SVC</div>
+          <div class="card-subtitle">SVC · Service Center</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Playbook operacional completo com guias de processos, padrões e boas práticas MTM.</p>
+          <div class="card-tags">
+            <span class="tag">Processos</span>
+            <span class="tag">Padrões</span>
+            <span class="tag">Guias</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir playbook</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       XD — Cross Docking (4 cards horizontais)
+  ══════════════════════════════════════════════════ -->
+  <div class="section-panel xd">
+    <div class="panel-group-label">🔀 XD — Cross Docking</div>
+    <div class="cards-grid-4">
+
+      <a class="tool-card" href="https://mtmtransportes-calculadoraequipamentosxdpt.vercel.app/">
+        <div class="card-top">
+          <div class="card-number">XD · 01 — Equipamentos</div>
+          <span class="card-emoji">📦</span>
+          <div class="card-title">Calculadora de Equipamentos</div>
+          <div class="card-subtitle">XD · Cross Docking</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Estime a quantidade de equipamentos com base no volume e layout da operação.</p>
+          <div class="card-tags">
+            <span class="tag">Baker Inhub</span>
+            <span class="tag">Flowrack 3x2</span>
+            <span class="tag">Pallet High</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="https://mtmtransportes-calculadoraprodxdpt.vercel.app/">
+        <div class="card-top">
+          <div class="card-number">XD · 02 — Produtividade</div>
+          <span class="card-emoji">📊</span>
+          <div class="card-title">Calculadora de Produtividade</div>
+          <div class="card-subtitle">XD · Cross Docking</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Calcule a produtividade de cada subprocesso com base nas capacidades MTM.</p>
+          <div class="card-tags">
+            <span class="tag">Inhub</span>
+            <span class="tag">Pesca</span>
+            <span class="tag">Sorting</span>
+            <span class="tag">Armado de HU</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="LINK_PATIO_XD_PT">
+        <div class="card-top">
+          <div class="card-number">XD · 03 — Pátio</div>
+          <span class="card-emoji">🚛</span>
+          <div class="card-title">Calculadora de Pátio</div>
+          <div class="card-subtitle">XD · Cross Docking</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Dimensione docas, vagas de espera e recursos de pátio para Line Haul e despacho.</p>
+          <div class="card-tags">
+            <span class="tag">Docas</span>
+            <span class="tag">Vagas LH</span>
+            <span class="tag">YMS</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir calculadora</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="LINK_PLAYBOOK_XD_PT">
+        <div class="card-top">
+          <div class="card-number">XD · 04 — Documentação</div>
+          <span class="card-emoji">📚</span>
+          <div class="card-title">Playbook XD</div>
+          <div class="card-subtitle">XD · Cross Docking</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Playbook operacional completo com guias de processos, padrões e boas práticas MTM.</p>
+          <div class="card-tags">
+            <span class="tag">Processos</span>
+            <span class="tag">Padrões</span>
+            <span class="tag">Guias</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text">Abrir playbook</span>
+            <div class="cta-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       MeliAir
+  ══════════════════════════════════════════════════ -->
+  <div class="section-panel meliair">
+    <div class="panel-group-label">✈️ MeliAir — Operação Aérea</div>
+    <div class="cards-grid-single">
+
+      <a class="tool-card" href="https://mtmtransportes-meliairpt.vercel.app/">
+        <div class="card-top teal">
+          <div class="card-number">MeliAir · 01 — Dimensionamento</div>
+          <span class="card-emoji">✈️</span>
+          <div class="card-title">Calculadora de MeliAir</div>
+          <div class="card-subtitle">MeliAir · Operação Aérea</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Dimensione recursos, equipamentos e capacidade operacional para a operação de carga aérea MeliAir.</p>
+          <div class="card-tags">
+            <span class="tag teal">Carga Aérea</span>
+            <span class="tag teal">Capacidade</span>
+            <span class="tag teal">Recursos</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text teal">Abrir calculadora</span>
+            <div class="cta-arrow teal">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       Sorter
+  ══════════════════════════════════════════════════ -->
+  <div class="section-panel sorter">
+    <div class="panel-group-label">⚙️ Sorter — Classificação Automática</div>
+    <div class="cards-grid-single">
+
+      <a class="tool-card" href="https://mtmtransportes-playbooksorterpt.vercel.app/">
+        <div class="card-top indigo">
+          <div class="card-number">Sorter · 01 — Documentação</div>
+          <span class="card-emoji">📚</span>
+          <div class="card-title">Playbook de Sorter</div>
+          <div class="card-subtitle">Sorter · Classificação Automática</div>
+        </div>
+        <div class="card-bottom">
+          <p class="card-desc">Acesse o playbook completo do Sorter automático com especificações técnicas, padrões de operação e guias de implementação MTM.</p>
+          <div class="card-tags">
+            <span class="tag indigo">Automação</span>
+            <span class="tag indigo">Classificação</span>
+            <span class="tag indigo">Implementação</span>
+          </div>
+          <div class="card-cta">
+            <span class="cta-text indigo">Abrir playbook</span>
+            <div class="cta-arrow indigo">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+
+  <div class="info-bar">
+    <span class="info-icon">💡</span>
+    <span>Os links de cada calculadora podem ser atualizados conforme as ferramentas forem publicadas. Dúvidas? Fale com o time de MTM.</span>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">Mercado Libre — MTM</div>
+  <div class="footer-note">Ferramentas de Planejamento Operacional · Service Center &amp; Cross Docking</div>
+</footer>
+
+</body>
+</html>
